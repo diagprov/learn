@@ -1,0 +1,10 @@
+(echo "Here is a message")
+(declare-const a Int)
+(declare-fun f (Int Bool) Int)
+(echo "a must be > 10")
+(assert (> a 10))
+(echo "f applied to a and true returns less than 100")
+(assert (< (f a true) 100))
+(check-sat)
+(get-model)
+
