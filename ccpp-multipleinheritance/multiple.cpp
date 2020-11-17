@@ -2,22 +2,22 @@
 
 class RootBase {
 public:
-  virtual void test();
-  virtual ~RootBase() {
-      std::printf("Delete base\n");
-  }
+    virtual void test();
+    virtual ~RootBase() {
+        std::printf("Delete base\n");
+    }
 };
 class CLeft : public RootBase {
 public:
-  virtual ~CLeft() {
-      std::printf("Delete cleft\n");
-  }
+    virtual ~CLeft() {
+        std::printf("Delete cleft\n");
+    }
 };
 class CRight : public RootBase {
 public:
-  virtual ~CRight() {
-      std::printf("Delete right\n");
-  }
+    virtual ~CRight() {
+        std::printf("Delete right\n");
+    }
 };
 
 void use_classes() {
