@@ -1,0 +1,42 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 5ce90806b4e60268b4c759c04c296b88ded89ae3f961d68cd238262fa67b0e31
+
+name:           hs-readert
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/hs-readert#readme>
+homepage:       https://github.com/githubuser/hs-readert#readme
+bug-reports:    https://github.com/githubuser/hs-readert/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/hs-readert
+
+executable hs-readert-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_hs_readert
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+    , lifted-async
+    , mtl
+    , say
+    , stm
+  default-language: Haskell2010
