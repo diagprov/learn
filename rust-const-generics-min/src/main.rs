@@ -1,5 +1,5 @@
 
-#![feature(min_const_generics)]
+// not needed since rust 1.51 #![feature(min_const_generics)]
 
 struct BigInt<const N: usize> {
     inner: [u64; N],
