@@ -1,4 +1,6 @@
 #include <cstdio>
+#include <iostream>
+#include <stdexcept>
 
 class RootBase {
 public:
@@ -20,6 +22,7 @@ public:
     }
     virtual void test() override {
         std::printf("This is Left\n");
+        throw new std::overflow_error("This overflowed!");
     }
     virtual ~CLeft() {
         std::printf("Delete Left\n");
@@ -34,6 +37,7 @@ public:
 
     virtual void test() override {
         std::printf("This is Right\n");
+        throw new std::underflow_error("This didn't overflow");
     }
     virtual ~CRight() {
         std::printf("Delete Right\n");
@@ -48,6 +52,7 @@ public:
 
     virtual void test() override {
         std::printf("This is BackTogether\n");
+        throw new std::logic_error("This isn't logical!");
     }
     virtual ~CBackTogether() {
         std::printf("Delete BackTogether\n");
@@ -69,9 +74,17 @@ void use_classes() {
     if ( allyourbase_left != nullptr || 
          allyourbase_right != nullptr || 
          allyourbase_upup != nullptr ) {
+        try {
         allyourbase_left->test();
         allyourbase_right->test();
         allyourbase_upup->test();
+        }
+        catch (std::overflow_error& e) {
+            std::cout << e.what() << std::endl;
+        }
+        catch (std::runtime_error& e) {
+            std::cout << e.what() << std::endl;
+        }
     } else {
         std::printf("This should work.\n");
     }
@@ -83,5 +96,9 @@ void use_classes() {
 
 int main(int argc, char** argv) {
 
+    try {
     use_classes();
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
 }

@@ -148,6 +148,16 @@ int main(int argc, char** argv) {
 
     Shape* s = nullptr;
 
+    if ( argc != 2 ) {
+        std::printf("Not enough arguments. Specify one letter.\n");
+        return -1;
+    }
+
+    if ( std::strlen(argv[1]) != 1 ) {
+        std::printf("Please pick a single letter argument.\n");
+        return -1;
+    }
+
     switch(argv[1][0]) {
     case 'C':
         s = new Circle(4);
