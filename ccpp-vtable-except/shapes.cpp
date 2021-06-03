@@ -50,7 +50,7 @@ protected:
         if ( len > 255 ) {
             throw ShapeProgramError(101, "Object name is too large"); 
         }
-        obj_name = (char*)std::calloc(len, sizeof(char));
+        obj_name = (char*)std::calloc(len+1, sizeof(char));
         std::strcpy(const_cast<char*>(obj_name), name);
     };
 

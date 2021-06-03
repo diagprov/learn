@@ -14,7 +14,7 @@ protected:
     virtual void set_name(const char* name) {
         // TODO: add an exception if name > some value! :P
         size_t len = std::strlen(name);
-        obj_name = (char*)std::calloc(len, sizeof(char));
+        obj_name = (char*)std::calloc(len+1, sizeof(char));
         std::strcpy(const_cast<char*>(obj_name), name);
     };
 
