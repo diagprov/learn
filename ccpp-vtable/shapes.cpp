@@ -25,7 +25,7 @@ public:
 
     virtual ~Object() {
         if ( obj_name) {
-            delete obj_name;
+            std::free((char*)obj_name);
             obj_name = nullptr;
         }
     }
