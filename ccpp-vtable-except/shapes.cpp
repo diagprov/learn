@@ -45,7 +45,11 @@ class Object {
 protected:
     char const* obj_name;
 
-    virtual void set_name(const char* name) {
+    // no direct construction, be awkward
+    Object() {};
+public:
+
+    void set_name(const char* name) {
         size_t len = std::strlen(name);
         if ( len > 255 ) {
             throw ShapeProgramError(101, "Object name is too large"); 
@@ -53,11 +57,6 @@ protected:
         obj_name = (char*)std::calloc(len+1, sizeof(char));
         std::strcpy(const_cast<char*>(obj_name), name);
     };
-
-    // no direct construction, be awkward
-    Object() {};
-public:
-
 
     virtual ~Object() {
         if ( obj_name) {
@@ -87,7 +86,6 @@ class Shape : public Object
 {
 public:
     Shape() {
-        set_name("Shape");
     }
 
     virtual ~Shape() {
@@ -101,7 +99,6 @@ protected:
     int b; int h;
 public:
     Parallelogram(int base, int height) : b(base), h(height) {
-        set_name("Parallelogram");
     }
 
     virtual ~Parallelogram() {
@@ -121,7 +118,6 @@ class Rectangle : public Parallelogram {
 public:
     // We are also a parallelogram, instantiate the protected instance variables there.
     Rectangle(int base, int height) : Parallelogram(base,height) {
-        set_name("Rectangle");
     }
 
     virtual ~Rectangle() {
@@ -134,7 +130,6 @@ class Square: public Rectangle, public RegularNGon {
 public:
     // We are also a parallelogram, instantiate the protected instance variables there.
     Square(int length) : Rectangle(length, length), RegularNGon(4) {
-        this->set_name("Square");
     }
 
     virtual ~Square() {
@@ -150,7 +145,6 @@ private:
     int b; int h;
 public:
     Triangle(int base, int height) : RegularNGon(3), b(base), h(height) {
-        set_name("Triangle");
     }
     virtual ~Triangle() {
     }
@@ -170,7 +164,6 @@ private:
     int r;
 public:
     Circle(int radius) : r(radius) {
-        set_name("Circle");
     }
     virtual ~Circle() {
     }
@@ -188,7 +181,6 @@ private:
     int a;
 public:
     Pentagon(int side) : RegularNGon(1), a(side) {
-        set_name("Pentagon");
     }
     virtual ~Pentagon() {
     }
@@ -212,7 +204,7 @@ private:
 public:
     Hexagon(int side) : RegularNGon(6), a(side) {
         // NOTE: deliberate bug, string too long.
-        set_name("HexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagon");
+
     }
     virtual ~Hexagon() {
     }
@@ -232,24 +224,31 @@ Shape* createshape(const char shapetype) {
     switch(shapetype) {
     case 'C':
         s = new Circle(4);
+        s->set_name("Circle");
         break;
     case 'R':
         s = new Rectangle(6,10);
+        s->set_name("Rectangle");
         break;
     case 'P':
         s = new Parallelogram(5,9);
+        s->set_name("Parallelogram");
         break;
     case 'S':
         s = new Square(10);
+        s->set_name("Square");
         break;
     case 'T':
         s = new Triangle(5,9);
+        s->set_name("Triangle");
         break;
     case 'H':
         s = new Hexagon(200);
+        s->set_name("HexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagonHexagon");
         break;
     case 'G':
         s = new Pentagon(2);
+        s->set_name("Pentagon");
         break;
     default:
         throw ShapeProgramError(102, "Unknown Shape Type"); 

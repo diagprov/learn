@@ -9,24 +9,26 @@
 // This is to mimmick a little bit python
 class Object {
 protected:
-    char const* obj_name;
+    char* obj_name;
 
-    virtual void set_name(const char* name) {
-        // TODO: add an exception if name > some value! :P
-        size_t len = std::strlen(name);
-        obj_name = (char*)std::calloc(len+1, sizeof(char));
-        std::strcpy(const_cast<char*>(obj_name), name);
-    };
+
 
     // no direct construction, be awkward
     Object() {};
 public:
+    
+    void set_name(const char* name) {
+        // TODO: add an exception if name > some value! :P
+        size_t len = std::strlen(name);
 
+        this->obj_name = (char*)std::calloc(len+1, sizeof(char));
+        std::strcpy(this->obj_name, name);
+    };
 
     virtual ~Object() {
-        if ( obj_name) {
-            std::free((char*)obj_name);
-            obj_name = nullptr;
+        if (obj_name) {
+            std::free(this->obj_name);
+            this->obj_name = nullptr;
         }
     }
 
@@ -51,7 +53,6 @@ class Shape : public Object
 {
 public:
     Shape() {
-        set_name("Shape");
     }
 
     virtual ~Shape() {
@@ -65,7 +66,6 @@ protected:
     int b; int h;
 public:
     Parallelogram(int base, int height) : b(base), h(height) {
-        set_name("Parallelogram");
     }
 
     virtual ~Parallelogram() {
@@ -85,7 +85,6 @@ class Rectangle : public Parallelogram {
 public:
     // We are also a parallelogram, instantiate the protected instance variables there.
     Rectangle(int base, int height) : Parallelogram(base,height) {
-        set_name("Rectangle");
     }
 
     virtual ~Rectangle() {
@@ -98,7 +97,6 @@ class Square: public Rectangle, public RegularNGon {
 public:
     // We are also a parallelogram, instantiate the protected instance variables there.
     Square(int length) : Rectangle(length, length), RegularNGon(4) {
-        this->set_name("Square");
     }
 
     virtual ~Square() {
@@ -114,7 +112,6 @@ private:
     int b; int h;
 public:
     Triangle(int base, int height) : b(base), h(height) {
-        set_name("Triangle");
     }
     virtual ~Triangle() {
     }
@@ -131,7 +128,6 @@ private:
     int r;
 public:
     Circle(int radius) : r(radius) {
-        set_name("Circle");
     }
     virtual ~Circle() {
     }
@@ -161,18 +157,23 @@ int main(int argc, char** argv) {
     switch(argv[1][0]) {
     case 'C':
         s = new Circle(4);
+        s->set_name("Circle");
         break;
     case 'R':
         s = new Rectangle(6,10);
+        s->set_name("Rectangle");
         break;
     case 'P':
         s = new Parallelogram(5,9);
+        s->set_name("Parallelogram");
         break;
     case 'S':
         s = new Square(10);
+        s->set_name("Square");
         break;
     case 'T':
         s = new Triangle(5,9);
+        s->set_name("Triangle");
         break;
     default:
         std::printf("Not a valid shape type. Exiting");
@@ -185,8 +186,9 @@ int main(int argc, char** argv) {
     double circ = s->circumference();
     std::printf("Area of %s is %f, Circumference of shape is %f\n", name, area, circ);
 
-    if (s) {
-        delete s; s = nullptr;
+    if (s != nullptr) {
+        delete s; 
+        s = nullptr;
     }
 
     return 0;
