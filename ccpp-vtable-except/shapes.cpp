@@ -155,7 +155,7 @@ public:
         // NOTE: Not actually testing :P
         // TODO: TESTING TESTING REMOVE IN REAL CODE!
         throw ShapeProgramError(100, "TEST TEST TEST!");
-        return b+h+(std::sqrt(b^2 + h^2));
+        return b+h+(std::sqrt(std::pow(b,2) + std::pow(h,2)));
     };
 };
 
@@ -168,7 +168,7 @@ public:
     virtual ~Circle() {
     }
     virtual double area() {
-        return (1/2)*(r^2)*(std::numbers::pi);
+        return (0.5)*(std::numbers::pi)*std::pow(r,2);
     }
     virtual double circumference() {
         return 2*r*(std::numbers::pi);
@@ -256,6 +256,9 @@ Shape* createshape(const char shapetype) {
     return s;
 }
 
+Circle unitCircle(1);
+Square unitSquare(1);
+
 void printshapedata(Shape* s) {
 
     try {
@@ -277,6 +280,15 @@ void printshapedata(Shape* s) {
     }
 }
 
+struct early_init {
+    early_init() {
+        unitSquare.set_name("Unit Square");
+        unitCircle.set_name("Unit Circle");
+    } 
+};
+
+early_init trigger;
+
 int main(int argc, char** argv) {
 
     Shape* s = nullptr;
@@ -294,6 +306,11 @@ int main(int argc, char** argv) {
     try {
         s = createshape(argv[1][0]);
         printshapedata(s);
+
+        std::printf("Data on the unit circle:\n");
+        printshapedata(&unitCircle);
+        std::printf("Data on the unit square:\n");
+        printshapedata(&unitSquare);
     }
     catch (std::runtime_error& e) {
         
