@@ -25,3 +25,9 @@ hello_arm.o: hello_arm.S
 
 hello_arm: hello_arm.o
 	ld -T arm.lds $< -o $@ 
+
+hello_aarch64.o: hello_aarch64.S
+	gcc -ffreestanding -nostdlib -c $< -o $@
+
+hello_aarch64: hello_aarch64.o
+	ld -T aarch64.lds $< -o $@ 
