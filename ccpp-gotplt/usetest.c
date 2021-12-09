@@ -13,11 +13,11 @@ extern int64_t getlen2(callback_func2 callback);
 
 char* globlstr;
 
-char* callback_function() {
+static char* callback_function() {
     return globlstr;
 }
 
-void callback_function2(char** str) {
+static void callback_function2(char** str) {
     *str = globlstr;
 }
 

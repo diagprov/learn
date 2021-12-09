@@ -3,8 +3,8 @@ TARGETS=shapes shapes.s
 
 CXX=clang++
 
-LDFLAGS=-v -fPIC -fPIE -pie -g -Wl,-z,relro,-z,now
-CXXFLAGS=-v -std=c++20 -Wall -Werror -fPIC -fPIE -g
+LDFLAGS=-v -fPIC -fPIE -pie -g
+CXXFLAGS=-v -std=c++20 -Wall -Werror -fPIC -fPIE -g -D_FORTIFY_SOURCE=1 -O2
 
 CXX_SFLAGS=-std=c++20 -Wall -Werror -fPIC -fPIE
 

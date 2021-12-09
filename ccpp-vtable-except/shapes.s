@@ -59,10 +59,10 @@ _Z11createshapec:                       # @_Z11createshapec
 	mov	edi, 24
 	call	_Znwm@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 56], rcx       # 8-byte Spill
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 48], rcx       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 56], rax       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 48], rax       # 8-byte Spill
 .Ltmp18:
 	mov	esi, 4
 	call	_ZN6CircleC2Ei
@@ -88,10 +88,10 @@ _Z11createshapec:                       # @_Z11createshapec
 	mov	edi, 24
 	call	_Znwm@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 72], rcx       # 8-byte Spill
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 64], rcx       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 72], rax       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 64], rax       # 8-byte Spill
 .Ltmp15:
 	mov	esi, 6
 	mov	edx, 10
@@ -118,10 +118,10 @@ _Z11createshapec:                       # @_Z11createshapec
 	mov	edi, 24
 	call	_Znwm@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 88], rcx       # 8-byte Spill
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 80], rcx       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 88], rax       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 80], rax       # 8-byte Spill
 .Ltmp12:
 	mov	esi, 5
 	mov	edx, 9
@@ -148,10 +148,10 @@ _Z11createshapec:                       # @_Z11createshapec
 	mov	edi, 40
 	call	_Znwm@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 104], rcx      # 8-byte Spill
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 96], rcx       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 104], rax      # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 96], rax       # 8-byte Spill
 .Ltmp9:
 	mov	esi, 10
 	call	_ZN6SquareC2Ei
@@ -177,10 +177,10 @@ _Z11createshapec:                       # @_Z11createshapec
 	mov	edi, 40
 	call	_Znwm@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 120], rcx      # 8-byte Spill
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 112], rcx      # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 120], rax      # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 112], rax      # 8-byte Spill
 .Ltmp6:
 	mov	esi, 5
 	mov	edx, 9
@@ -207,10 +207,10 @@ _Z11createshapec:                       # @_Z11createshapec
 	mov	edi, 32
 	call	_Znwm@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 136], rcx      # 8-byte Spill
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 128], rcx      # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 136], rax      # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 128], rax      # 8-byte Spill
 .Ltmp3:
 	mov	esi, 200
 	call	_ZN7HexagonC2Ei
@@ -236,10 +236,10 @@ _Z11createshapec:                       # @_Z11createshapec
 	mov	edi, 32
 	call	_Znwm@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 152], rcx      # 8-byte Spill
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 144], rcx      # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 152], rax      # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 144], rax      # 8-byte Spill
 .Ltmp0:
 	mov	esi, 2
 	call	_ZN8PentagonC2Ei
@@ -265,8 +265,8 @@ _Z11createshapec:                       # @_Z11createshapec
 	mov	edi, 1048
 	call	__cxa_allocate_exception@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 160], rcx      # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 160], rax      # 8-byte Spill
 .Ltmp21:
 	lea	rdx, [rip + .L.str.7]
 	mov	esi, 102
@@ -462,8 +462,8 @@ _ZN6Object8set_nameEPKc:                # @_ZN6Object8set_nameEPKc
 	mov	edi, 1048
 	call	__cxa_allocate_exception@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 56], rcx       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 56], rax       # 8-byte Spill
 .Ltmp24:
 	lea	rdx, [rip + .L.str.19]
 	mov	esi, 101
@@ -815,10 +815,9 @@ _ZN17ShapeProgramErrorC2EiPKc:          # @_ZN17ShapeProgramErrorC2EiPKc
 	mov	rbp, rsp
 	.cfi_def_cfa_register rbp
 	sub	rsp, 48
-	mov	rcx, rdx
 	mov	qword ptr [rbp - 8], rdi
 	mov	dword ptr [rbp - 12], esi
-	mov	qword ptr [rbp - 24], rcx
+	mov	qword ptr [rbp - 24], rdx
 	mov	rdi, qword ptr [rbp - 8]
 	mov	qword ptr [rbp - 48], rdi       # 8-byte Spill
 	mov	rsi, qword ptr [rbp - 24]
@@ -1024,18 +1023,17 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	mov	rdi, qword ptr [rbp - 8]
 .Ltmp33:
 	call	_ZN6Object4nameEv
-	mov	rcx, rax
 .Ltmp34:
-	mov	qword ptr [rbp - 80], rcx       # 8-byte Spill
+	mov	qword ptr [rbp - 80], rax       # 8-byte Spill
 	jmp	.LBB16_1
 .LBB16_1:
-	mov	rcx, qword ptr [rbp - 80]       # 8-byte Reload
-	mov	qword ptr [rbp - 16], rcx
+	mov	rax, qword ptr [rbp - 80]       # 8-byte Reload
+	mov	qword ptr [rbp - 16], rax
 	mov	rdi, qword ptr [rbp - 8]
-	mov	rcx, qword ptr [rdi]
-	mov	rcx, qword ptr [rcx + 16]
+	mov	rax, qword ptr [rdi]
+	mov	rax, qword ptr [rax + 16]
 .Ltmp35:
-	call	rcx
+	call	rax
 .Ltmp36:
 	movsd	qword ptr [rbp - 88], xmm0      # 8-byte Spill
 	jmp	.LBB16_2
@@ -1044,10 +1042,10 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
                                         # xmm0 = mem[0],zero
 	movsd	qword ptr [rbp - 40], xmm0
 	mov	rdi, qword ptr [rbp - 8]
-	mov	rcx, qword ptr [rdi]
-	mov	rcx, qword ptr [rcx + 24]
+	mov	rax, qword ptr [rdi]
+	mov	rax, qword ptr [rax + 24]
 .Ltmp37:
-	call	rcx
+	call	rax
 .Ltmp38:
 	movsd	qword ptr [rbp - 96], xmm0      # 8-byte Spill
 	jmp	.LBB16_3
@@ -1062,7 +1060,6 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	lea	rdi, [rip + .L.str.10]
 	mov	al, 2
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp40:
 	jmp	.LBB16_4
 .LBB16_4:
@@ -1093,7 +1090,6 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	xor	eax, eax
                                         # kill: def $al killed $al killed $eax
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp55:
 	jmp	.LBB16_8
 .LBB16_8:
@@ -1118,7 +1114,6 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	xor	eax, eax
                                         # kill: def $al killed $al killed $eax
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp48:
 	jmp	.LBB16_12
 .LBB16_12:
@@ -1132,7 +1127,6 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	xor	eax, eax
                                         # kill: def $al killed $al killed $eax
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp50:
 	jmp	.LBB16_13
 .LBB16_13:
@@ -1157,7 +1151,6 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	xor	eax, eax
                                         # kill: def $al killed $al killed $eax
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp43:
 	jmp	.LBB16_16
 .LBB16_16:
@@ -1165,11 +1158,10 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	jmp	.LBB16_9
 .LBB16_17:
 .Ltmp44:
-	mov	rcx, rdx
-	mov	rsi, rax
-                                        # kill: def $ecx killed $ecx killed $rcx
-	mov	qword ptr [rbp - 24], rsi
-	mov	dword ptr [rbp - 28], ecx
+	mov	rcx, rax
+	mov	eax, edx
+	mov	qword ptr [rbp - 24], rcx
+	mov	dword ptr [rbp - 28], eax
 .Ltmp45:
 	call	__cxa_end_catch@PLT
 .Ltmp46:
@@ -1178,11 +1170,10 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	jmp	.LBB16_23
 .LBB16_19:
 .Ltmp51:
-	mov	rcx, rdx
-	mov	rsi, rax
-                                        # kill: def $ecx killed $ecx killed $rcx
-	mov	qword ptr [rbp - 24], rsi
-	mov	dword ptr [rbp - 28], ecx
+	mov	rcx, rax
+	mov	eax, edx
+	mov	qword ptr [rbp - 24], rcx
+	mov	dword ptr [rbp - 28], eax
 .Ltmp52:
 	call	__cxa_end_catch@PLT
 .Ltmp53:
@@ -1191,11 +1182,10 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 	jmp	.LBB16_23
 .LBB16_21:
 .Ltmp56:
-	mov	rcx, rdx
-	mov	rsi, rax
-                                        # kill: def $ecx killed $ecx killed $rcx
-	mov	qword ptr [rbp - 24], rsi
-	mov	dword ptr [rbp - 28], ecx
+	mov	rcx, rax
+	mov	eax, edx
+	mov	qword ptr [rbp - 24], rcx
+	mov	dword ptr [rbp - 28], eax
 .Ltmp57:
 	call	__cxa_end_catch@PLT
 .Ltmp58:
@@ -1218,7 +1208,7 @@ _Z14printshapedataP5Shape:              # @_Z14printshapedataP5Shape
 GCC_except_table16:
 .Lexception4:
 	.byte	255                             # @LPStart Encoding = omit
-	.byte	156                             # @TType Encoding = indirect pcrel sdata8
+	.byte	155                             # @TType Encoding = indirect pcrel sdata4
 	.uleb128 .Lttbase0-.Lttbaseref0
 .Lttbaseref0:
 	.byte	1                               # Call site Encoding = uleb128
@@ -1287,13 +1277,13 @@ GCC_except_table16:
 	.byte	0                               #   No further actions
 	.p2align	2
                                         # >> Catch TypeInfos <<
-	.quad	0                               # TypeInfo 4
+	.long	0                               # TypeInfo 4
 .Ltmp60:                                # TypeInfo 3
-	.quad	.L_ZTI17ShapeProgramError.DW.stub-.Ltmp60
+	.long	.L_ZTI17ShapeProgramError.DW.stub-.Ltmp60
 .Ltmp61:                                # TypeInfo 2
-	.quad	.L_ZTISt11logic_error.DW.stub-.Ltmp61
+	.long	.L_ZTISt11logic_error.DW.stub-.Ltmp61
 .Ltmp62:                                # TypeInfo 1
-	.quad	.L_ZTISt9exception.DW.stub-.Ltmp62
+	.long	.L_ZTISt9exception.DW.stub-.Ltmp62
 .Lttbase0:
 	.p2align	2
                                         # -- End function
@@ -1426,13 +1416,12 @@ main:                                   # @main
 	movsx	edi, byte ptr [rax]
 .Ltmp63:
 	call	_Z11createshapec
-	mov	rcx, rax
 .Ltmp64:
-	mov	qword ptr [rbp - 64], rcx       # 8-byte Spill
+	mov	qword ptr [rbp - 64], rax       # 8-byte Spill
 	jmp	.LBB21_5
 .LBB21_5:
-	mov	rcx, qword ptr [rbp - 64]       # 8-byte Reload
-	mov	qword ptr [rbp - 24], rcx
+	mov	rax, qword ptr [rbp - 64]       # 8-byte Reload
+	mov	qword ptr [rbp - 24], rax
 	mov	rdi, qword ptr [rbp - 24]
 .Ltmp65:
 	call	_Z14printshapedataP5Shape
@@ -1444,7 +1433,6 @@ main:                                   # @main
 	xor	eax, eax
                                         # kill: def $al killed $al killed $eax
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp68:
 	jmp	.LBB21_7
 .LBB21_7:
@@ -1459,7 +1447,6 @@ main:                                   # @main
 	xor	eax, eax
                                         # kill: def $al killed $al killed $eax
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp72:
 	jmp	.LBB21_9
 .LBB21_9:
@@ -1519,18 +1506,16 @@ main:                                   # @main
 	xor	eax, eax
                                         # kill: def $al killed $al killed $eax
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp79:
 	jmp	.LBB21_18
 .LBB21_18:
 	jmp	.LBB21_22
 .LBB21_19:
 .Ltmp80:
-	mov	rcx, rdx
-	mov	rsi, rax
-                                        # kill: def $ecx killed $ecx killed $rcx
-	mov	qword ptr [rbp - 32], rsi
-	mov	dword ptr [rbp - 36], ecx
+	mov	rcx, rax
+	mov	eax, edx
+	mov	qword ptr [rbp - 32], rcx
+	mov	dword ptr [rbp - 36], eax
 .Ltmp81:
 	call	__cxa_end_catch@PLT
 .Ltmp82:
@@ -1546,7 +1531,6 @@ main:                                   # @main
 	xor	eax, eax
                                         # kill: def $al killed $al killed $eax
 	call	printf@PLT
-                                        # kill: def $ecx killed $eax
 .Ltmp77:
 	jmp	.LBB21_21
 .LBB21_21:
@@ -1595,7 +1579,7 @@ main:                                   # @main
 GCC_except_table21:
 .Lexception5:
 	.byte	255                             # @LPStart Encoding = omit
-	.byte	156                             # @TType Encoding = indirect pcrel sdata8
+	.byte	155                             # @TType Encoding = indirect pcrel sdata4
 	.uleb128 .Lttbase1-.Lttbaseref1
 .Lttbaseref1:
 	.byte	1                               # Call site Encoding = uleb128
@@ -1642,9 +1626,9 @@ GCC_except_table21:
 	.byte	0                               #   No further actions
 	.p2align	2
                                         # >> Catch TypeInfos <<
-	.quad	0                               # TypeInfo 2
+	.long	0                               # TypeInfo 2
 .Ltmp84:                                # TypeInfo 1
-	.quad	.L_ZTISt13runtime_error.DW.stub-.Ltmp84
+	.long	.L_ZTISt13runtime_error.DW.stub-.Ltmp84
 .Lttbase1:
 	.p2align	2
                                         # -- End function
@@ -2347,8 +2331,8 @@ _ZN8Triangle13circumferenceEv:          # @_ZN8Triangle13circumferenceEv
 	mov	edi, 1048
 	call	__cxa_allocate_exception@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 32], rcx       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 32], rax       # 8-byte Spill
 .Ltmp85:
 	lea	rdx, [rip + .L.str.20]
 	mov	esi, 100
@@ -2698,8 +2682,8 @@ _ZN8Pentagon4areaEv:                    # @_ZN8Pentagon4areaEv
 	mov	edi, 16
 	call	__cxa_allocate_exception@PLT
 	mov	rdi, rax
-	mov	rcx, rdi
-	mov	qword ptr [rbp - 40], rcx       # 8-byte Spill
+	mov	rax, rdi
+	mov	qword ptr [rbp - 40], rax       # 8-byte Spill
 .Ltmp88:
 	lea	rsi, [rip + .L.str.21]
 	call	_ZNSt16invalid_argumentC1EPKc@PLT
@@ -3544,7 +3528,7 @@ _ZTV17ShapeProgramError:
 	.size	DW.ref.__gxx_personality_v0, 8
 DW.ref.__gxx_personality_v0:
 	.quad	__gxx_personality_v0
-	.ident	"clang version 12.0.0 (Fedora 12.0.0-2.fc34)"
+	.ident	"clang version 13.0.0 (Fedora 13.0.0-3.fc35)"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
 	.addrsig_sym __cxx_global_var_init
