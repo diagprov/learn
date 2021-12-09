@@ -1,7 +1,7 @@
 
 TARGETS=castwars
 
-CXX=clang++
+CXX?=clang++
 
 LDFLAGS=-Wall -Werror -Wpedantic -fPIC -fPIE -pie -g
 CXXFLAGS=-std=c++20 -Wall -Werror -Wpedantic -fPIC -fPIE -g -D_FORTIFY_SOURCE=1 -O2
