@@ -4,7 +4,10 @@
 
 module Main where
 
-import RIO
+import System.IO
+import Control.Exception
+import Data.Typeable
+import GHC.Show
 
 -- boilerplate, we'll get to this in a bit
 data MyException = MyException
@@ -12,9 +15,9 @@ data MyException = MyException
 instance Exception MyException
 
 main :: IO ()
-main = runSimpleApp $ do
-  logInfo "This will be called"
+main = do
+  putStrLn "This will be called"
   throwIO MyException
-  logInfo "This will never be called"
+  putStrLn "This will never be called"
 
 
