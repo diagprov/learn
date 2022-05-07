@@ -15,7 +15,8 @@ int main(int argc, char** argv) {
     : [pvr] "=rm" (pvr)
     );
 
-    printf("PVR: 0x%08x\n", pvr);
+    printf("PVR: 0x%08lx\n", pvr);
     return 0;
+
 }
 
