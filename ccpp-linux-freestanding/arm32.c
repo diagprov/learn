@@ -5,7 +5,7 @@
 
 ssize_t sys_open(const void* path, int flags)
 {
-    register int64_t syscallnum_reg asm ("r7") = __NR_write;
+    register int32_t syscallnum_reg asm ("r7") = __NR_write;
     register const void *path_reg asm ("r0") = path;
     register int flags_reg asm ("r1") = flags;
     asm volatile (
@@ -19,7 +19,7 @@ ssize_t sys_open(const void* path, int flags)
 
 ssize_t sys_close(int fd)
 {
-    register int64_t syscallnum_reg asm ("r7") = __NR_close;
+    register int32_t syscallnum_reg asm ("r7") = __NR_close;
     register int fd_reg asm ("r1") = fd;
     asm volatile (
         "svc #0"
@@ -32,7 +32,7 @@ ssize_t sys_close(int fd)
 
 ssize_t sys_write(int fd, const void *buf, size_t size)
 {
-    register int64_t syscallnum_reg asm ("r7") = __NR_write;
+    register int32_t syscallnum_reg asm ("r7") = __NR_write;
     register int fd_reg asm ("r0") = fd;
     register const void *buf_reg asm ("r1") = buf;
     register size_t size_reg asm ("r2") = size;
@@ -47,7 +47,7 @@ ssize_t sys_write(int fd, const void *buf, size_t size)
 
 ssize_t sys_exit(int exit_code)
 {
-    register int64_t syscallnum_reg asm ("r7") = __NR_exit;
+    register int32_t syscallnum_reg asm ("r7") = __NR_exit;
     register int exitcode_reg asm ("r0") = exit_code;
     asm volatile (
         "svc #0"

@@ -13,6 +13,13 @@ endif
 ifeq ($(ARCH),armv7l)
 OBJECTS:=arm32.o $(OBJECTS)
 endif
+ifeq ($(ARCH),aarch64)
+OBJECTS:=aarch64.o $(OBJECTS)
+endif
+ifeq ($(ARCH),ppc64)
+OBJECTS:=ppc64.o $(OBJECTS)
+endif
+
 
 
 .PHONY: default clean rebuild

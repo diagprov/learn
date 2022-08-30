@@ -3,12 +3,14 @@ import sys
 from .. import regfunc
 
 def register_functions():
-    for name, member in globals().items():
-        if callable(member):
-            if (hasattr(member, 'is_registered') and
-                member.is_registered == True):
-                print(member)
-                print(member.__dict__)
+    functions = filter(lambda obj: callable(obj[1]), globals().items())
+    handlers = dict(filter(lambda obj: hasattr(obj[1], 'is_registered') and
+                                       obj[1].is_registered == True, functions))
+    print(__name__)
+    for name, obj in handlers.items():
+        print(name)
+
+    print("***")
 
 @regfunc
 def my_function():
