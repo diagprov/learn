@@ -1,0 +1,4 @@
+(executable
+ (public_name ocamltour)
+ (name main)
+ (libraries ocamltour))

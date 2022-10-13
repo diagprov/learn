@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/ocamltour/META"
+  "_build/install/default/lib/ocamltour/dune-package"
+  "_build/install/default/lib/ocamltour/opam"
+]
+bin: [
+  "_build/install/default/bin/ocamltour"
+]
