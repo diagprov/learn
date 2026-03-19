@@ -12,11 +12,11 @@ import java.util.Enumeration;
 public class TrustStoreDiagnostics {
 
     public static void main(String[] args) {
-        System.out.println("=".repeat(70));
+        printSeparator(70);
         System.out.println("TRUST STORE SOURCE DIAGNOSTIC");
         System.out.println("Java Version: " + System.getProperty("java.version"));
         System.out.println("Java Home: " + System.getProperty("java.home"));
-        System.out.println("=".repeat(70));
+        printSeparator(70);
 
         TrustStoreSource source = analyzeSource();
 
@@ -28,11 +28,20 @@ public class TrustStoreDiagnostics {
             System.out.println("Password Source: " + source.passwordSource);
         }
 
-        System.out.println("\n" + "=".repeat(70));
+        System.out.println("\n");
+        printSeparator(70);
         System.out.println("CERTIFICATE DETAILS");
-        System.out.println("=".repeat(70));
+        printSeparator(70);
 
         loadAndDisplayCerts(source);
+    }
+
+    static void printSeparator(int length) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            sb.append('=');
+        }
+        System.out.println(sb.toString());
     }
 
     static TrustStoreSource analyzeSource() {
@@ -85,9 +94,16 @@ public class TrustStoreDiagnostics {
             }
         }
 
-        return new TrustStoreSource(sourceType, description, effectivePath, passwordSource,
-            sysStore != null ? System.getProperty("javax.net.ssl.trustStoreType", "JKS") : 
-            (secType != null ? secType : "JKS"));
+        String storeType;
+        if (sysStore != null) {
+            storeType = System.getProperty("javax.net.ssl.trustStoreType", "JKS");
+        } else if (secType != null) {
+            storeType = secType;
+        } else {
+            storeType = "JKS";
+        }
+
+        return new TrustStoreSource(sourceType, description, effectivePath, passwordSource, storeType);
     }
 
     static String findSecurityPropertiesPath() {
@@ -135,8 +151,11 @@ public class TrustStoreDiagnostics {
                 return;
             }
 
-            try (FileInputStream fis = new FileInputStream(storeFile)) {
+            FileInputStream fis = new FileInputStream(storeFile);
+            try {
                 ks.load(fis, password);
+            } finally {
+                fis.close();
             }
 
             Enumeration<String> aliases = ks.aliases();
@@ -148,22 +167,22 @@ public class TrustStoreDiagnostics {
                 if (ks.isCertificateEntry(alias)) {
                     X509Certificate cert = (X509Certificate) ks.getCertificate(alias);
                     count++;
-                    displayCertificateDetails(count, alias, cert);
+                    displayCertificateDetails(alias, cert);
                 }
             }
 
-            System.out.println("\n" + "=".repeat(70));
+            System.out.println("\n");
+            printSeparator(70);
             System.out.println("Total certificates: " + count);
-            System.out.println("=".repeat(70));
+            printSeparator(70);
 
         } catch (Exception e) {
             System.out.println("ERROR loading trust store: " + e.getMessage());
         }
     }
 
-    static void displayCertificateDetails(int index, String alias, X509Certificate cert) {
+    static void displayCertificateDetails(String alias, X509Certificate cert) {
         String subjectDN = cert.getSubjectX500Principal().getName();
-        String issuerDN = cert.getIssuerX500Principal().getName();
         String commonName = extractCommonName(subjectDN);
         String serialNumber = cert.getSerialNumber().toString(16).toUpperCase();
 
@@ -171,7 +190,8 @@ public class TrustStoreDiagnostics {
         String keyAlgorithm = publicKey.getAlgorithm();
         String keyStrength = getKeyStrength(publicKey);
 
-        System.out.println("[" + index + "] Alias: " + alias);
+        System.out.println();
+        System.out.println(alias + ":");
         System.out.println("    Common Name:  " + (commonName.isEmpty() ? "[No CN]" : commonName));
         System.out.println("    Serial:       " + serialNumber);
         System.out.println("    Valid From:   " + cert.getNotBefore());
@@ -179,7 +199,15 @@ public class TrustStoreDiagnostics {
         System.out.println("    Key Type:     " + keyAlgorithm);
         System.out.println("    Key Strength: " + keyStrength);
         System.out.println("    Sig Algorithm:" + cert.getSigAlgName());
-        System.out.println("-".repeat(70));
+        printDashes(70);
+    }
+
+    static void printDashes(int length) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            sb.append('-');
+        }
+        System.out.println(sb.toString());
     }
 
     static String getKeyStrength(PublicKey key) {
@@ -202,7 +230,8 @@ public class TrustStoreDiagnostics {
     }
 
     static String extractCommonName(String dn) {
-        for (String part : dn.split(",")) {
+        String[] parts = dn.split(",");
+        for (String part : parts) {
             part = part.trim();
             if (part.startsWith("CN=")) {
                 return unescapeDNValue(part.substring(3));
@@ -233,7 +262,21 @@ public class TrustStoreDiagnostics {
         UNKNOWN
     }
 
-    record TrustStoreSource(SourceType type, String description, String path, 
-                           String passwordSource, String storeType) {}
+    static class TrustStoreSource {
+        final SourceType type;
+        final String description;
+        final String path;
+        final String passwordSource;
+        final String storeType;
+
+        TrustStoreSource(SourceType type, String description, String path, 
+                        String passwordSource, String storeType) {
+            this.type = type;
+            this.description = description;
+            this.path = path;
+            this.passwordSource = passwordSource;
+            this.storeType = storeType;
+        }
+    }
 }
 
